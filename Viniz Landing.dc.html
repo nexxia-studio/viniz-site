@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viniz — Gère ta salle, pas ton logiciel.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'MuseoModerno';src:url('assets/MuseoModerno.ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:'HelveticaNowD';src:url('assets/HelveticaNowDisplay-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+html{scroll-behavior:smooth}
+body{margin:0;background:#FBF9F5;color:#4825B3;font-family:Helvetica,'Helvetica Neue',-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#4825B3;text-decoration:none}
+a:hover{color:#6B5E9C}
+:focus-visible{outline:2px solid #4825B3;outline-offset:3px;border-radius:4px}
+[data-dark] :focus-visible{outline-color:#C8FF3D}
+input,textarea,button{font:inherit;color:inherit}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important;transition-duration:.001ms !important}}
+</style>
+</helmet>
+
+<div style="overflow-x:clip">
+
+<header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(20px) saturate(170%);-webkit-backdrop-filter:blur(20px) saturate(170%);background:rgba(251,249,245,.62);border-bottom:1px solid rgba(72,37,179,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.6)">
+  <nav style="max-width:1240px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:28px">
+    <a href="#top" style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
+      <img src="assets/viniz-icon.svg" alt="" width="34" height="34" style="width:34px;height:34px;border-radius:9px;display:block">
+      <span style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:23px;letter-spacing:-.01em">Viniz</span>
+    </a>
+    <div style="flex:1 1 auto;display:flex;gap:26px;justify-content:center;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:14px;letter-spacing:.01em" data-navlinks>
+      <a href="#produit" style="padding:6px 2px">Produit</a>
+      <a href="#marque" style="padding:6px 2px">Ta marque</a>
+      <a href="#tarifs" style="padding:6px 2px">Tarifs</a>
+      <a href="#journal" style="padding:6px 2px">Journal</a>
+    </div>
+    <a href="#contact" style="flex:0 0 auto;background:#4825B3;color:#C8FF3D;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:14px;padding:11px 20px;border-radius:999px;white-space:nowrap;transition:transform .25s ease,background .25s ease" style-hover="background:#2A1470;color:#C8FF3D;transform:translateY(-1px)">Nous contacter</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section style="padding:26px 24px 0">
+    <div data-dark="1" data-hero style="position:relative;max-width:1400px;margin:0 auto;background:#2A1470;border-radius:44px;overflow:hidden;color:#F3F0FF;padding:0">
+      <div style="position:absolute;inset:0;pointer-events:none;opacity:.55" data-heroglow></div>
+      <div aria-hidden="true" style="position:absolute;left:12%;bottom:-8%;width:520px;height:520px;border-radius:50%;background:#5A34D0;filter:blur(120px);opacity:.55;pointer-events:none"></div>
+      <div aria-hidden="true" style="position:absolute;right:8%;bottom:2%;width:420px;height:420px;border-radius:50%;background:#C8FF3D;filter:blur(150px);opacity:.16;pointer-events:none"></div>
+      <div aria-hidden="true" style="position:absolute;left:50%;bottom:-14%;width:680px;height:420px;margin-left:-340px;border-radius:50%;background:#7A52E8;filter:blur(140px);opacity:.42;pointer-events:none"></div>
+      <svg data-pulse viewBox="0 0 1400 420" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:0;right:0;top:44%;width:100%;height:340px;pointer-events:none">
+        <path data-pulse-path d="M-20 250 H250 l46 -34 l34 66 l40 -120 l38 196 l44 -108 H1420" fill="none" stroke="#C8FF3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path>
+      </svg>
+
+      <div data-heroinner style="position:relative;transform-origin:0 0;width:100%">
+      <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:76px 64px 0" data-herogrid>
+        <div style="max-width:900px;padding-bottom:34px">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:#C8FF3D;margin:0 0 24px">Garde le pouls de ta salle</p>
+          <h1 data-herotitle style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(50px,6.6vw,104px);line-height:.94;letter-spacing:-.035em;margin:0 0 26px;text-wrap:balance">Gère ta salle,<br>pas ton logiciel.</h1>
+          <p style="font-size:18px;line-height:1.6;color:#C8C2E6;margin:0 auto 34px;max-width:600px;text-wrap:pretty">Réservations, paiements, présences : Viniz s'occupe de l'administratif pendant que tu t'occupes de tes membres. Et tes membres réservent, paient et prennent leur place en liste d'attente depuis une app claire — avec tes cours et tes règles.</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center">
+            <a href="#contact" style="background:#C8FF3D;color:#2A1470;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;padding:15px 28px;border-radius:999px;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 30px rgba(200,255,61,.28);color:#2A1470">Nous contacter</a>
+            <a href="#produit" style="border:1px solid rgba(243,240,255,.32);color:#F3F0FF;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;padding:15px 28px;border-radius:999px;transition:border-color .25s ease,transform .25s ease" style-hover="border-color:#C8FF3D;color:#F3F0FF;transform:translateY(-2px)">Voir le produit</a>
+          </div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#8F86BF;margin:30px 0 0">Conçu avec une vraie salle, pas dans un bureau.</p>
+        </div>
+
+        <div data-fan style="position:relative;display:flex;align-items:flex-end;justify-content:center;width:100%;min-height:600px;perspective:1600px">
+
+          <div data-fancard data-slot="0" style="position:absolute;left:50%;bottom:0;width:224px;margin-left:-112px;background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);border-radius:24px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);color:#F3F0FF">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#C8FF3D;margin:0 0 12px">PLANNING · LUNDI</p>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="background:rgba(240,145,58,.20);border-left:3px solid #F0913A;border-radius:10px;padding:9px 10px"><p style="font-family:'JetBrains Mono',monospace;font-size:10px;margin:0 0 3px;color:#D9D2F5">07:00</p><p style="font-size:12px;margin:0">Hyrox Foundation</p></div>
+              <div style="background:rgba(157,124,255,.22);border-left:3px solid #9D7CFF;border-radius:10px;padding:9px 10px"><p style="font-family:'JetBrains Mono',monospace;font-size:10px;margin:0 0 3px;color:#D9D2F5">18:00</p><p style="font-size:12px;margin:0">Strength</p></div>
+              <div style="background:rgba(93,150,255,.20);border-left:3px solid #5D96FF;border-radius:10px;padding:9px 10px"><p style="font-family:'JetBrains Mono',monospace;font-size:10px;margin:0 0 3px;color:#D9D2F5">19:30</p><p style="font-size:12px;margin:0">Engine</p></div>
+            </div>
+          </div>
+
+          <div data-fancard data-slot="1" style="position:absolute;left:50%;bottom:0;width:224px;margin-left:-112px;background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);border-radius:24px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);color:#F3F0FF">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#C8FF3D;margin:0 0 14px">PRÉSENCES · 18:00</p>
+            <div style="display:flex;align-items:center;gap:11px;margin-bottom:11px">
+              <div style="width:34px;height:34px;border-radius:11px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:12px">JL</div>
+              <div style="flex:1;min-width:0"><p style="margin:0;font-size:13px">Julie Lambert</p><p style="margin:2px 0 0;font-size:11px;color:#C8C2E6">6 séances restantes</p></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
+              <div style="width:34px;height:34px;border-radius:11px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:12px">TD</div>
+              <div style="flex:1;min-width:0"><p style="margin:0;font-size:13px">Thomas Dubois</p><p style="margin:2px 0 0;font-size:11px;color:#C8C2E6">Illimité 12 mois</p></div>
+            </div>
+            <div style="background:#C8FF3D;color:#2A1470;text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;padding:9px;border-radius:999px">2 PRÉSENTS SUR 8</div>
+          </div>
+
+        <div data-phonewrap style="position:relative;flex:0 0 auto;width:290px;z-index:3">
+          <div data-phone style="position:relative;width:290px;height:590px;background:#0B0620;border-radius:44px;padding:11px;box-shadow:0 40px 90px rgba(0,0,0,.45);border:1px solid rgba(243,240,255,.14)">
+            <div style="position:absolute;left:50%;transform:translateX(-50%);top:22px;width:96px;height:26px;background:#0B0620;border-radius:999px;z-index:3"></div>
+            <img src="assets/app-home.png" alt="Écran d'accueil de l'app membre — Dopamine Performance Club" style="position:relative;height:100%;width:100%;object-fit:cover;object-position:top;border-radius:34px;display:block;background:#120A2E">
+          </div>
+        </div>
+
+          <div data-fancard data-slot="2" style="position:absolute;left:50%;bottom:0;width:224px;margin-left:-112px;background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);border-radius:24px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);color:#F3F0FF">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#C8FF3D;margin:0 0 12px">ENCAISSÉ EN JANVIER</p>
+            <p style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:36px;line-height:1;letter-spacing:-.03em;margin:0 0 4px">4 280 €</p>
+            <p style="font-size:11px;color:#C8C2E6;margin:0 0 18px">dont 1 890 € récurrent</p>
+            <div style="display:flex;align-items:flex-end;gap:8px;height:64px">
+              <div style="flex:1;height:52%;background:rgba(243,240,255,.22);border-radius:6px"></div>
+              <div style="flex:1;height:74%;background:rgba(243,240,255,.22);border-radius:6px"></div>
+              <div style="flex:1;height:63%;background:rgba(243,240,255,.22);border-radius:6px"></div>
+              <div style="flex:1;height:98%;background:#C8FF3D;border-radius:6px"></div>
+            </div>
+          </div>
+
+          <div data-fancard data-slot="3" style="position:absolute;left:50%;bottom:0;width:224px;margin-left:-112px;background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);border-radius:24px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);color:#F3F0FF">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#C8FF3D;margin:0 0 12px">LISTE D'ATTENTE</p>
+            <p style="font-size:13px;line-height:1.45;margin:0 0 14px">Une place s'est libérée sur <strong style="font-weight:700">Hyrox Pro</strong>, mardi 18:00.</p>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px;border:1px solid rgba(255,255,255,.18);border-radius:14px">
+              <div style="width:30px;height:30px;border-radius:10px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:11px">LM</div>
+              <div style="flex:1;min-width:0"><p style="margin:0;font-size:12px">Lucas Martin</p><p style="margin:2px 0 0;font-family:'JetBrains Mono',monospace;font-size:10px;color:#C8C2E6">prévenu · 21:04</p></div>
+            </div>
+            <p style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C8C2E6;margin:12px 0 0">Aucune action de ta part.</p>
+          </div>
+
+          <div data-fancard data-slot="4" style="position:absolute;left:50%;bottom:0;width:224px;margin-left:-112px;background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);border-radius:24px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);color:#F3F0FF">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#C8FF3D;margin:0 0 12px">FACTURE ENVOYÉE</p>
+            <p style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:32px;line-height:1;letter-spacing:-.03em;margin:0 0 10px">60,00 €</p>
+            <p style="font-size:12px;line-height:1.5;margin:0 0 14px">Carte 10 séances — Julie Lambert.<br><span style="color:#C8C2E6">Payée en ligne, facture partie toute seule.</span></p>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border:1px solid rgba(255,255,255,.18);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:10px">
+              <span style="color:#C8C2E6">F-2026-014</span><span style="color:#C8FF3D">PAYÉE</span>
+            </div>
+          </div>
+
+          <div data-fancard data-slot="5" style="position:absolute;left:50%;bottom:0;width:224px;margin-left:-112px;background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);border-radius:24px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);color:#F3F0FF">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#C8FF3D;margin:0 0 12px">POLITIQUE D'ABSENCE</p>
+            <p style="font-size:13px;line-height:1.5;margin:0 0 14px">Marie Claes n'a pas annulé avant 4 h. Sa séance est décomptée — selon <strong style="font-weight:700">ta règle</strong>, pas la nôtre.</p>
+            <div style="display:flex;flex-direction:column;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#C8C2E6">
+              <div style="display:flex;justify-content:space-between;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.08)"><span>Délai</span><span style="color:#F3F0FF">4 h avant</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.08)"><span>Ce mois</span><span style="color:#F3F0FF">3 no-shows</span></div>
+            </div>
+          </div>
+
+          <div data-fandots style="position:absolute;left:50%;transform:translateX(-50%);bottom:-14px;display:flex;gap:7px;z-index:5"></div>
+        </div>
+      </div>
+
+      <div style="position:relative;border-top:1px solid rgba(243,240,255,.12);margin-top:0;overflow:hidden">
+        <div data-marquee style="display:flex;gap:0;width:max-content;padding:20px 0;will-change:transform">
+          <div data-marquee-track style="display:flex;align-items:center;gap:46px;padding-right:46px;font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.01em;color:rgba(243,240,255,.55);white-space:nowrap">
+            <span>Réservations</span><span style="color:#C8FF3D">✦</span><span>Liste d'attente</span><span style="color:#C8FF3D">✦</span><span>Paiements</span><span style="color:#C8FF3D">✦</span><span>Factures</span><span style="color:#C8FF3D">✦</span><span>Présences</span><span style="color:#C8FF3D">✦</span><span>Absences</span><span style="color:#C8FF3D">✦</span><span>App à ta marque</span><span style="color:#C8FF3D">✦</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="produit" style="padding:110px 24px 40px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div data-prodwrap style="position:relative">
+      <div data-prodpin>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:40px">
+        <div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#6B5E9C;margin:0 0 20px">Le produit</p>
+          <h2 data-reveal style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(34px,4.4vw,62px);line-height:1;letter-spacing:-.035em;margin:0;max-width:620px;text-wrap:balance">Quatre écrans, et ta soirée est libre.</h2>
+        </div>
+        <div data-tabs style="display:flex;gap:8px;flex-wrap:wrap;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:13px">
+          <button type="button" data-tab="0" style="border:1px solid #E4DEFB;background:#fff;padding:10px 18px;border-radius:999px;cursor:pointer;transition:all .25s ease" style-hover="border-color:#4825B3">Planning</button>
+          <button type="button" data-tab="1" style="border:1px solid #E4DEFB;background:#fff;padding:10px 18px;border-radius:999px;cursor:pointer;transition:all .25s ease" style-hover="border-color:#4825B3">Présences</button>
+          <button type="button" data-tab="2" style="border:1px solid #E4DEFB;background:#fff;padding:10px 18px;border-radius:999px;cursor:pointer;transition:all .25s ease" style-hover="border-color:#4825B3">Revenus</button>
+          <button type="button" data-tab="3" style="border:1px solid #E4DEFB;background:#fff;padding:10px 18px;border-radius:999px;cursor:pointer;transition:all .25s ease" style-hover="border-color:#4825B3">App membre</button>
+        </div>
+      </div>
+
+      <div data-productgrid style="display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center">
+        <div data-sticky style="position:relative">
+          <div data-screens style="position:relative;height:620px">
+
+            <div data-screen="0" style="position:absolute;inset:0;background:#fff;border:1px solid #E4DEFB;border-radius:32px;padding:30px;box-shadow:0 24px 60px rgba(72,37,179,.09);overflow:hidden;display:flex;flex-direction:column">
+              <img src="assets/dash-planning.png" alt="Planning hebdomadaire — dashboard gérant Viniz" style="flex:1;min-height:0;width:100%;object-fit:cover;object-position:top left;border-radius:18px;border:1px solid #F0ECFA;display:block">
+            </div>
+
+            <div data-screen="1" style="position:absolute;inset:0;background:#fff;border:1px solid #E4DEFB;border-radius:32px;padding:30px;box-shadow:0 24px 60px rgba(72,37,179,.09);overflow:hidden;display:flex;flex-direction:column">
+              <img src="assets/dash-presences.png" alt="Pointage des présences — dashboard gérant Viniz" style="flex:1;min-height:0;width:100%;object-fit:cover;object-position:top left;border-radius:18px;border:1px solid #F0ECFA;display:block">
+            </div>
+
+            <div data-screen="2" style="position:absolute;inset:0;background:#fff;border:1px solid #E4DEFB;border-radius:32px;padding:30px;box-shadow:0 24px 60px rgba(72,37,179,.09);overflow:hidden;display:flex;flex-direction:column">
+              <img src="assets/dash-revenus.png" alt="Revenus — dashboard gérant Viniz" style="flex:1;min-height:0;width:100%;object-fit:cover;object-position:top left;border-radius:18px;border:1px solid #F0ECFA;display:block">
+            </div>
+
+            <div data-screen="3" style="position:absolute;inset:0;background:#4825B3;border-radius:32px;padding:30px;box-shadow:0 24px 60px rgba(72,37,179,.18);overflow:hidden;display:grid;place-items:center" data-dark="1">
+              <div style="display:flex;align-items:center;gap:44px;flex-wrap:wrap;justify-content:center">
+                <div style="width:250px;height:510px;background:#0B0620;border-radius:40px;padding:10px;border:1px solid rgba(243,240,255,.16)">
+                  <img src="assets/app-planning.png" alt="Planning de l'app membre — Dopamine Performance Club" style="height:100%;width:100%;object-fit:cover;object-position:top;border-radius:31px;display:block;background:#120A2E">
+                </div>
+                <div style="max-width:250px;color:#F3F0FF">
+                  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#C8FF3D;margin:0 0 14px">CÔTÉ MEMBRE</p>
+                  <p style="font-size:16px;line-height:1.6;color:#C8C2E6;margin:0">Deux gestes : il ouvre l'app de ta salle, il réserve. S'il annule, la place part à la personne suivante sur la liste d'attente.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div data-steps style="position:relative;height:300px">
+          <div data-step="0" style="position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#6B5E9C;margin:0 0 14px">01 — PLANNING</p>
+            <h3 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:32px;line-height:1.05;letter-spacing:-.03em;margin:0 0 14px">Ta semaine, posée une fois.</h3>
+            <p style="font-size:16px;line-height:1.65;color:#6B5E9C;margin:0;text-wrap:pretty">Tu déposes tes cours, ils se répètent chaque semaine. Tes membres réservent, tu ne touches plus à rien.</p>
+          </div>
+          <div data-step="1" style="position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#6B5E9C;margin:0 0 14px">02 — PRÉSENCES</p>
+            <h3 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:32px;line-height:1.05;letter-spacing:-.03em;margin:0 0 14px">Qui est là, qui ne l'est pas.</h3>
+            <p style="font-size:16px;line-height:1.65;color:#6B5E9C;margin:0;text-wrap:pretty">Tu pointes debout dans la salle, sur ton téléphone. Les absences suivent la politique que tu as fixée, sans discussion.</p>
+          </div>
+          <div data-step="2" style="position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#6B5E9C;margin:0 0 14px">03 — REVENUS</p>
+            <h3 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:32px;line-height:1.05;letter-spacing:-.03em;margin:0 0 14px">Ce que tu as encaissé, tout de suite.</h3>
+            <p style="font-size:16px;line-height:1.65;color:#6B5E9C;margin:0;text-wrap:pretty">En ligne ou au comptoir, la facture part toute seule. Rien à ressaisir le soir.</p>
+          </div>
+          <div data-step="3" style="position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#6B5E9C;margin:0 0 14px">04 — APP MEMBRE</p>
+            <h3 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:32px;line-height:1.05;letter-spacing:-.03em;margin:0 0 14px">Une app pour tes membres.</h3>
+            <p style="font-size:16px;line-height:1.65;color:#6B5E9C;margin:0;text-wrap:pretty">Ils réservent, paient et se mettent en liste d'attente depuis leur téléphone. Tes cours, tes règles, tes photos.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:120px 24px;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;left:-6%;top:34%;width:520px;height:520px;border-radius:50%;background:#7A52E8;filter:blur(130px);opacity:.20;pointer-events:none"></div>
+    <div aria-hidden="true" style="position:absolute;right:-4%;top:50%;width:460px;height:460px;border-radius:50%;background:#C8FF3D;filter:blur(140px);opacity:.14;pointer-events:none"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto">
+      <div style="max-width:760px;margin-bottom:64px">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#6B5E9C;margin:0 0 20px">Le problème</p>
+        <h2 data-reveal style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(34px,4.4vw,62px);line-height:1;letter-spacing:-.035em;margin:0 0 28px;text-wrap:balance">Ce n'est pas ton métier. Et ça prend tes soirées.</h2>
+        <p style="font-size:18px;line-height:1.65;color:#6B5E9C;margin:0;text-wrap:pretty">Le tableur des inscriptions. Les rappels pour savoir qui a payé. Les messages pour prévenir qu'un cours est complet. Les places réservées par des gens qui ne viendront pas. Rien de tout ça n'est ton métier — et pourtant c'est ce qui prend tes soirées.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" data-cards3>
+        <article data-reveal style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 54px rgba(72,37,179,.12), inset 0 1px 0 rgba(255,255,255,.9);border-radius:28px;padding:36px 32px;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 34px 70px rgba(72,37,179,.18)">
+          <div style="width:46px;height:46px;border-radius:14px;background:#4825B3;display:grid;place-items:center;margin-bottom:26px"><span style="color:#C8FF3D;font-family:'JetBrains Mono',monospace;font-size:13px">01</span></div>
+          <h3 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:25px;line-height:1.1;letter-spacing:-.02em;margin:0 0 14px">Le planning se remplit seul</h3>
+          <p style="font-size:15px;line-height:1.65;color:#5B4E90;margin:0;text-wrap:pretty">Tu poses tes cours une fois, ils se répètent. Tes membres réservent, la liste d'attente propose les places libérées à la personne suivante.</p>
+        </article>
+        <article data-reveal style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 54px rgba(72,37,179,.12), inset 0 1px 0 rgba(255,255,255,.9);border-radius:28px;padding:36px 32px;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 34px 70px rgba(72,37,179,.18)">
+          <div style="width:46px;height:46px;border-radius:14px;background:#4825B3;display:grid;place-items:center;margin-bottom:26px"><span style="color:#C8FF3D;font-family:'JetBrains Mono',monospace;font-size:13px">02</span></div>
+          <h3 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:25px;line-height:1.1;letter-spacing:-.02em;margin:0 0 14px">L'argent rentre sans toi</h3>
+          <p style="font-size:15px;line-height:1.65;color:#5B4E90;margin:0;text-wrap:pretty">Paiement en ligne ou au comptoir, la facture part automatiquement. Tu vois ce que tu as encaissé, sans rien ressaisir.</p>
+        </article>
+        <article data-reveal style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 54px rgba(72,37,179,.12), inset 0 1px 0 rgba(255,255,255,.9);border-radius:28px;padding:36px 32px;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 34px 70px rgba(72,37,179,.18)">
+          <div style="width:46px;height:46px;border-radius:14px;background:#4825B3;display:grid;place-items:center;margin-bottom:26px"><span style="color:#C8FF3D;font-family:'JetBrains Mono',monospace;font-size:13px">03</span></div>
+          <h3 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:25px;line-height:1.1;letter-spacing:-.02em;margin:0 0 14px">Les présences en dix secondes</h3>
+          <p style="font-size:15px;line-height:1.65;color:#5B4E90;margin:0;text-wrap:pretty">Tu pointes depuis ton téléphone, debout dans la salle. Les absences suivent la politique que tu as fixée.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="marque" style="padding:0 24px">
+    <div data-dark="1" style="max-width:1400px;margin:0 auto;background:#2A1470;border-radius:44px;padding:96px 64px;color:#F3F0FF;overflow:hidden;position:relative">
+      <div aria-hidden="true" style="position:absolute;left:36%;top:-24%;width:560px;height:560px;border-radius:50%;background:#7A52E8;filter:blur(140px);opacity:.5;pointer-events:none"></div>
+      <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center" data-marquegrid>
+        <div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#C8FF3D;margin:0 0 18px">L'app membre</p>
+          <h2 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(30px,3.4vw,46px);line-height:1;letter-spacing:-.035em;margin:0 0 20px;text-wrap:balance">Tes membres réservent, paient et attendent leur place tout seuls.</h2>
+          <p style="font-size:16px;line-height:1.6;color:#C8C2E6;margin:0 0 28px;max-width:480px;text-wrap:pretty">Une seule app, claire, pour tes membres : le planning de ta salle, leur réservation, leur paiement, leur place en liste d'attente. Tes cours et tes règles, tels que tu les as posés.</p>
+          <div style="display:flex;flex-direction:column;gap:16px;max-width:480px">
+            <div style="display:flex;gap:18px;align-items:flex-start;padding-top:16px;border-top:1px solid rgba(243,240,255,.14)">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8FF3D;padding-top:3px">01</span>
+              <div><h3 style="font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:16px;margin:0 0 7px">Réserver en deux gestes</h3><p style="font-size:15px;line-height:1.6;color:#C8C2E6;margin:0">Le cours, l'heure, c'est réservé. Une place se libère, la liste d'attente avance toute seule.</p></div>
+            </div>
+            <div style="display:flex;gap:18px;align-items:flex-start;padding-top:16px;border-top:1px solid rgba(243,240,255,.14)">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8FF3D;padding-top:3px">02</span>
+              <div><h3 style="font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:16px;margin:0 0 7px">Payer sans passer par toi</h3><p style="font-size:15px;line-height:1.6;color:#C8C2E6;margin:0">Carte, abonnement ou séances : le membre gère sa formule, la facture part toute seule.</p></div>
+            </div>
+            <div style="display:flex;gap:18px;align-items:flex-start;padding-top:16px;border-top:1px solid rgba(243,240,255,.14)">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8FF3D;padding-top:3px">03</span>
+              <div><h3 style="font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:16px;margin:0 0 7px">Tes cours, tes règles</h3><p style="font-size:15px;line-height:1.6;color:#C8C2E6;margin:0">Nom, description et photos de tes cours ; délais d'annulation, absences, limites de réservation : tu les fixes, l'app les applique.</p></div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:22px;align-items:center">
+          <div style="background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);border-radius:30px;padding:32px;max-width:430px;width:100%">
+            <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#C8FF3D;margin:0 0 10px">EN OPTION · SUPPLÉMENT</p>
+            <h3 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:28px;line-height:1.05;letter-spacing:-.03em;margin:0 0 14px">Ta propre app, à ton nom</h3>
+            <p style="font-size:15px;line-height:1.6;color:#C8C2E6;margin:0 0 26px">Si tu veux aller plus loin, on publie une application dédiée à ta salle — ton nom, ton icône, tes couleurs. Ce n'est pas compris dans les formules : on en parle au cas par cas.</p>
+            <div style="display:flex;align-items:center;gap:18px">
+              <img src="assets/icon-dopamine.png" alt="Icône de l'app Dopamine Performance Club" style="width:74px;height:74px;border-radius:20px;display:block;border:1px solid rgba(243,240,255,.18)">
+              <div>
+                <p style="margin:0;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:14px">Dopamine Performance Club</p>
+                <p style="margin:4px 0 0;font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">app dédiée · Ougrée</p>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);border-radius:999px;padding:12px 20px">
+            <img src="assets/viniz-icon.svg" alt="" width="22" height="22" style="width:22px;height:22px;border-radius:6px;display:block">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">l'app standard est comprise dans chaque formule</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tarifs" style="padding:70px 24px 70px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="margin-bottom:36px;max-width:640px">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#6B5E9C;margin:0 0 14px">Tarifs</p>
+        <h2 data-reveal style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(30px,3.4vw,46px);line-height:1;letter-spacing:-.035em;margin:0;text-wrap:balance">Un prix par taille de salle. Rien de caché.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch" data-cards3>
+        <article data-reveal style="background:#fff;border:1px solid #E4DEFB;border-radius:30px;padding:28px 28px;display:flex;flex-direction:column;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 50px rgba(72,37,179,.10)">
+          <h3 style="font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;letter-spacing:.06em;margin:0 0 22px">STARTER</h3>
+          <p style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:42px;line-height:1;letter-spacing:-.035em;margin:0 0 6px">99 €<span style="font-size:17px;font-family:Helvetica,sans-serif;color:#6B5E9C;letter-spacing:0"> /mois</span></p>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6B5E9C;margin:0 0 22px">jusqu'à 50 membres</p>
+          <p style="font-size:15px;line-height:1.6;color:#6B5E9C;margin:0 0 26px">Pour une salle qui démarre et veut arrêter le tableur.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.5;margin-bottom:22px;padding-top:18px;border-top:1px solid #F0ECFA">
+            <span>Planning et réservations</span><span>App membre à ta marque</span><span>Paiements et factures</span><span>Présences et liste d'attente</span>
+          </div>
+          <a href="#contact" style="margin-top:auto;text-align:center;border:1px solid #4825B3;padding:14px;border-radius:999px;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:14px;transition:background .25s ease,color .25s ease" style-hover="background:#4825B3;color:#C8FF3D">Nous contacter</a>
+        </article>
+        <article data-reveal data-dark="1" style="background:#4825B3;color:#F3F0FF;border-radius:30px;padding:28px 28px;display:flex;flex-direction:column;position:relative;transform:translateY(-14px);box-shadow:0 30px 70px rgba(72,37,179,.24)">
+          <span style="position:absolute;top:-13px;left:32px;white-space:nowrap;background:#C8FF3D;color:#2A1470;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;padding:6px 14px;border-radius:999px">LE PLUS CHOISI</span>
+          <h3 style="font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;letter-spacing:.06em;margin:0 0 22px;color:#C8FF3D">PRO</h3>
+          <p style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:42px;line-height:1;letter-spacing:-.035em;margin:0 0 6px">200 €<span style="font-size:17px;font-family:Helvetica,sans-serif;color:#C8C2E6;letter-spacing:0"> /mois</span></p>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#C8C2E6;margin:0 0 22px">jusqu'à 200 membres</p>
+          <p style="font-size:15px;line-height:1.6;color:#C8C2E6;margin:0 0 26px">Pour une salle installée, avec plusieurs coachs.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.5;margin-bottom:22px;padding-top:18px;border-top:1px solid rgba(243,240,255,.16)">
+            <span style="color:#C8C2E6">Tout Starter, plus :</span><span>Comptes coachs séparés</span><span>Suivi des revenus et de l'assiduité</span><span>Relance des membres inactifs</span>
+          </div>
+          <a href="#contact" style="margin-top:auto;text-align:center;background:#C8FF3D;color:#2A1470;padding:15px;border-radius:999px;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:14px;transition:transform .25s ease" style-hover="transform:translateY(-2px);color:#2A1470">Nous contacter</a>
+        </article>
+        <article data-reveal style="background:#fff;border:1px solid #E4DEFB;border-radius:30px;padding:28px 28px;display:flex;flex-direction:column;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 50px rgba(72,37,179,.10)">
+          <h3 style="font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;letter-spacing:.06em;margin:0 0 22px">PREMIUM</h3>
+          <p style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:42px;line-height:1;letter-spacing:-.035em;margin:0 0 6px">350 €<span style="font-size:17px;font-family:Helvetica,sans-serif;color:#6B5E9C;letter-spacing:0"> /mois</span></p>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6B5E9C;margin:0 0 22px">membres illimités</p>
+          <p style="font-size:15px;line-height:1.6;color:#6B5E9C;margin:0 0 26px">Pour une salle qui grandit, ou plusieurs adresses.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.5;margin-bottom:22px;padding-top:18px;border-top:1px solid #F0ECFA">
+            <span style="color:#6B5E9C">Tout Pro, plus :</span><span>Prélèvement automatique</span><span>Plusieurs salles, un tableau de bord</span><span>Accompagnement dédié</span>
+          </div>
+          <a href="#contact" style="margin-top:auto;text-align:center;border:1px solid #4825B3;padding:14px;border-radius:999px;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:14px;transition:background .25s ease,color .25s ease" style-hover="background:#4825B3;color:#C8FF3D">Nous contacter</a>
+        </article>
+      </div>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B5E9C;margin:28px 0 0">Tarifs hors TVA, à confirmer avant mise en ligne.</p>
+    </div>
+  </section>
+
+  <section style="padding:110px 24px 120px">
+    <div data-dark="1" style="position:relative;max-width:1400px;margin:0 auto;background:#4825B3;border-radius:44px;padding:80px 64px;color:#F3F0FF;overflow:hidden">
+      <div aria-hidden="true" style="position:absolute;right:-6%;bottom:-32%;width:620px;height:620px;border-radius:50%;background:#C8FF3D;filter:blur(160px);opacity:.14;pointer-events:none"></div>
+      <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:42px">
+        <div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#C8FF3D;margin:0 0 18px">Une salle cliente. Un vrai gérant.</p>
+          <h2 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(30px,3.6vw,48px);line-height:1;letter-spacing:-.035em;margin:0">Dopamine Performance Club, Ougrée</h2>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button type="button" data-testiprev aria-label="Témoignage précédent" style="width:46px;height:46px;border-radius:999px;border:1px solid rgba(243,240,255,.3);background:transparent;color:#F3F0FF;cursor:pointer;font-size:17px;transition:background .25s ease" style-hover="background:rgba(243,240,255,.12)">‹</button>
+          <button type="button" data-testinext aria-label="Témoignage suivant" style="width:46px;height:46px;border-radius:999px;border:1px solid rgba(243,240,255,.3);background:transparent;color:#F3F0FF;cursor:pointer;font-size:17px;transition:background .25s ease" style-hover="background:rgba(243,240,255,.12)">›</button>
+        </div>
+      </div>
+      <div data-testitrack style="position:relative;display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px">
+        <article style="scroll-snap-align:start;flex:0 0 min(430px,84%);background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);border-radius:30px;padding:36px">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#C8FF3D;margin:0 0 22px">AVANT VINIZ</p>
+          <blockquote style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:27px;line-height:1.15;letter-spacing:-.03em;margin:0 0 24px;text-wrap:pretty">« C'est moi qui me prends la tête. Je me mets un rappel pour chaque client. »</blockquote>
+          <p style="font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:14px;margin:0">Nicolas Parmentier</p>
+          <p style="font-size:13px;color:#C8C2E6;margin:5px 0 0">Gérant — Dopamine Performance Club</p>
+        </article>
+        <article style="scroll-snap-align:start;flex:0 0 min(430px,84%);background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);border-radius:30px;padding:36px">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#C8FF3D;margin:0 0 22px">AUJOURD'HUI</p>
+          <p style="font-size:17px;line-height:1.6;margin:0 0 24px;text-wrap:pretty">Ses membres réservent seuls, la liste d'attente tourne toute seule et ses paiements arrivent sans qu'il y pense. Il ne se met plus de rappel pour personne.</p>
+          <div style="display:flex;gap:26px;padding-top:22px;border-top:1px solid rgba(243,240,255,.18)">
+            <div><p style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:26px;margin:0;line-height:1">14</p><p style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C8C2E6;margin:6px 0 0">cours / semaine</p></div>
+            <div><p style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:26px;margin:0;line-height:1">68</p><p style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C8C2E6;margin:6px 0 0">membres actifs</p></div>
+            <div><p style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:26px;margin:0;line-height:1">0</p><p style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C8C2E6;margin:6px 0 0">tableur</p></div>
+          </div>
+        </article>
+        <article style="scroll-snap-align:start;flex:0 0 min(430px,84%);background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);border-radius:30px;padding:36px;display:flex;flex-direction:column">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#C8FF3D;margin:0 0 22px">LA SUIVANTE</p>
+          <h3 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:27px;line-height:1.15;letter-spacing:-.03em;margin:0 0 16px">On a une salle cliente. On en cherche deux.</h3>
+          <p style="font-size:15px;line-height:1.6;color:#C8C2E6;margin:0 0 26px">Pas de chiffres gonflés ici : Viniz tourne depuis des mois dans une vraie salle, et on avance salle par salle. Si c'est la tienne, on part de ton planning.</p>
+          <a href="#contact" style="margin-top:auto;align-self:flex-start;background:#C8FF3D;color:#2A1470;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:14px;padding:13px 22px;border-radius:999px;transition:transform .25s ease" style-hover="transform:translateY(-2px);color:#2A1470">Nous contacter</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="journal" style="position:relative;padding:0 24px 120px;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;left:18%;top:18%;width:560px;height:560px;border-radius:50%;background:#7A52E8;filter:blur(150px);opacity:.16;pointer-events:none"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:44px">
+        <h2 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(30px,3.6vw,48px);line-height:1;letter-spacing:-.035em;margin:0">Journal</h2>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B5E9C;margin:0">Ce qu'on apprend en gérant une salle</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" data-cards3>
+        <a href="#journal" data-reveal style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 54px rgba(72,37,179,.12), inset 0 1px 0 rgba(255,255,255,.9);border-radius:28px;padding:14px;display:flex;flex-direction:column;gap:18px;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 34px 70px rgba(72,37,179,.18);color:#4825B3">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Fin de cours dans une salle de sport" style="height:190px;width:100%;object-fit:cover;border-radius:18px;display:block;background:#F1EDFD">
+          <span style="padding:0 16px 20px;display:flex;flex-direction:column;gap:14px;min-height:160px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6B5E9C">GESTION</span>
+            <span style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:25px;line-height:1.12;letter-spacing:-.025em">Pourquoi une absence ne devrait jamais être automatique</span>
+            <span style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B5E9C">Lire →</span>
+          </span>
+        </a>
+        <a href="#journal" data-reveal style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 54px rgba(72,37,179,.12), inset 0 1px 0 rgba(255,255,255,.9);border-radius:28px;padding:14px;display:flex;flex-direction:column;gap:18px;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 34px 70px rgba(72,37,179,.18);color:#4825B3">
+          <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Paiement par carte au comptoir" style="height:190px;width:100%;object-fit:cover;border-radius:18px;display:block;background:#F1EDFD">
+          <span style="padding:0 16px 20px;display:flex;flex-direction:column;gap:14px;min-height:160px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6B5E9C">PAIEMENTS</span>
+            <span style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:25px;line-height:1.12;letter-spacing:-.025em">Encaisser au comptoir sans perdre sa comptabilité</span>
+            <span style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B5E9C">Lire →</span>
+          </span>
+        </a>
+        <a href="#journal" data-reveal style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 54px rgba(72,37,179,.12), inset 0 1px 0 rgba(255,255,255,.9);border-radius:28px;padding:14px;display:flex;flex-direction:column;gap:18px;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 34px 70px rgba(72,37,179,.18);color:#4825B3">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Membres à l'entraînement en salle" style="height:190px;width:100%;object-fit:cover;border-radius:18px;display:block;background:#F1EDFD">
+          <span style="padding:0 16px 20px;display:flex;flex-direction:column;gap:14px;min-height:160px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6B5E9C">MEMBRES</span>
+            <span style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:25px;line-height:1.12;letter-spacing:-.025em">La liste d'attente qui ne débite personne pour rien</span>
+            <span style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B5E9C">Lire →</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding:0 24px 24px">
+    <div data-dark="1" style="max-width:1400px;margin:0 auto;background:#4825B3;border-radius:44px;padding:90px 64px;color:#F3F0FF">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px" data-contactgrid>
+        <div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#C8FF3D;margin:0 0 22px">Contact</p>
+          <h2 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(32px,4vw,56px);line-height:1;letter-spacing:-.035em;margin:0 0 26px;text-wrap:balance">Écris-nous, on te répond.</h2>
+          <p style="font-size:17px;line-height:1.65;color:#C8C2E6;margin:0 0 40px;max-width:440px;text-wrap:pretty">Dis-nous en deux lignes comment tu gères ta salle aujourd'hui. On te répond, et on regarde ensemble si Viniz te convient — en partant de ton planning, pas d'une démonstration générique.</p>
+          <div style="display:flex;align-items:center;gap:12px">
+            <img src="assets/viniz-icon.svg" alt="" width="30" height="30" style="width:30px;height:30px;border-radius:8px;display:block">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8F86BF">Édité par Nexxia · Belgique</span>
+          </div>
+        </div>
+        <form data-form novalidate style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" data-formrow>
+            <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">NOM</span><input name="nom" type="text" required autocomplete="name" style="background:rgba(243,240,255,.07);border:1px solid rgba(243,240,255,.18);border-radius:14px;padding:15px 16px;font-size:15px;color:#F3F0FF"></label>
+            <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">SALLE</span><input name="salle" type="text" required style="background:rgba(243,240,255,.07);border:1px solid rgba(243,240,255,.18);border-radius:14px;padding:15px 16px;font-size:15px;color:#F3F0FF"></label>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" data-formrow>
+            <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">EMAIL</span><input name="email" type="email" required autocomplete="email" style="background:rgba(243,240,255,.07);border:1px solid rgba(243,240,255,.18);border-radius:14px;padding:15px 16px;font-size:15px;color:#F3F0FF"></label>
+            <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">TÉLÉPHONE</span><input name="tel" type="tel" autocomplete="tel" style="background:rgba(243,240,255,.07);border:1px solid rgba(243,240,255,.18);border-radius:14px;padding:15px 16px;font-size:15px;color:#F3F0FF"></label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">MESSAGE</span><textarea name="message" rows="4" style="background:rgba(243,240,255,.07);border:1px solid rgba(243,240,255,.18);border-radius:14px;padding:15px 16px;font-size:15px;color:#F3F0FF;resize:vertical"></textarea></label>
+          <button type="submit" style="margin-top:8px;background:#C8FF3D;color:#2A1470;border:none;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;padding:17px;border-radius:999px;cursor:pointer;transition:transform .25s ease" style-hover="transform:translateY(-2px)">Envoyer le message</button>
+          <p data-formnote style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8F86BF;margin:4px 0 0;line-height:1.6">On répond sous 24 h ouvrées. Pas de liste de diffusion. Bientôt : tester l'app en version gratuite, sans nous écrire.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer style="padding:60px 24px 44px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:center;border-top:1px solid #E4DEFB;padding-top:34px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <img src="assets/viniz-icon.svg" alt="" width="28" height="28" style="width:28px;height:28px;border-radius:8px;display:block">
+      <span style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:19px">Viniz</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B5E9C;margin-left:10px">Garde le pouls de ta salle.</span>
+    </div>
+    <div style="display:flex;gap:24px;font-size:13px;color:#6B5E9C;flex-wrap:wrap">
+      <a href="#produit" style="color:#6B5E9C">Produit</a>
+      <a href="#marque" style="color:#6B5E9C">Ta marque</a>
+      <a href="#tarifs" style="color:#6B5E9C">Tarifs</a>
+      <a href="#contact" style="color:#6B5E9C">Contact</a>
+      <span>© 2026 Nexxia</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroFullscreen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document;
+    const q = (s, c) => Array.from((c || root).querySelectorAll(s));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._cleanups = [];
+
+    // ---- responsive layout (no stylesheets: applied here) ----
+    const applyResponsive = () => {
+      const w = window.innerWidth;
+      const set = (sel, prop, val) => q(sel).forEach(e => { e.style[prop] = val; });
+      const narrow = w < 1080, mobile = w < 720;
+      set('[data-herogrid]', 'padding', mobile ? '52px 24px 40px' : narrow ? '64px 40px 60px' : '76px 64px 70px');
+      if (this._fanPlace) this._fanPlace(w);
+      q('[data-fandots]').forEach(e => { e.style.display = 'flex'; e.style.bottom = w < 1020 ? '-24px' : '-14px'; });
+      const short = window.innerHeight < 900;
+      const cw = mobile ? 224 : 252;
+      q('[data-fancard]').forEach(e => { e.style.width = cw + 'px'; e.style.marginLeft = (-cw / 2) + 'px'; });
+      q('[data-fan]').forEach(e => { e.style.minHeight = mobile ? '500px' : short ? '540px' : '620px'; });
+      set('[data-productgrid]', 'gridTemplateColumns', narrow ? '1fr' : '1.25fr .75fr');
+      set('[data-marquegrid]', 'gridTemplateColumns', narrow ? '1fr' : '1fr 1fr');
+      set('[data-contactgrid]', 'gridTemplateColumns', narrow ? '1fr' : '1fr 1fr');
+      set('[data-cards3]', 'gridTemplateColumns', mobile ? '1fr' : narrow ? 'repeat(2,1fr)' : 'repeat(3,1fr)');
+      set('[data-formrow]', 'gridTemplateColumns', mobile ? '1fr' : '1fr 1fr');
+      set('[data-navlinks]', 'display', w < 860 ? 'none' : 'flex');
+      q('[data-marque], #marque > div, #contact > div').forEach(e => { e.style.padding = mobile ? '64px 24px' : narrow ? '72px 40px' : '60px 56px'; });
+      const scrH = mobile ? 480 : Math.max(400, Math.min(620, window.innerHeight - 330));
+      q('[data-screens]').forEach(e => { e.style.height = scrH + 'px'; });
+      const fs = Math.min(1, scrH / 620);
+      this._scrFit = fs;
+      q('[data-screen]').forEach(sc => {
+        if (fs >= .999) { sc.style.top = ''; sc.style.left = ''; sc.style.right = ''; sc.style.bottom = ''; sc.style.width = ''; sc.style.height = ''; sc.style.transformOrigin = ''; }
+        else { sc.style.top = '0'; sc.style.left = '0'; sc.style.right = 'auto'; sc.style.bottom = 'auto'; sc.style.width = (100 / fs) + '%'; sc.style.height = '620px'; sc.style.transformOrigin = 'top left'; }
+      });
+      if (this._applyScr) this._applyScr();
+      if (this._setPin) this._setPin(!narrow);
+      q('[data-phone]').forEach(e => { const s = mobile ? .8 : 1; e.style.transform = 'scale(' + s + ')'; e.style.transformOrigin = 'bottom center'; });
+      if (this._fitHero) this._fitHero();
+    };
+
+    // ---- hero fits the first screen: scale the whole block to the viewport ----
+    const heroEl = root.querySelector('[data-hero]');
+    const heroInner = root.querySelector('[data-heroinner]');
+    this._fitHero = () => {
+      if (!heroEl || !heroInner) return;
+      heroInner.style.transform = 'none';
+      heroInner.style.width = '100%';
+      heroEl.style.height = 'auto';
+      if (this.props.heroFullscreen === false || window.innerWidth < 720) return;
+      const top = heroEl.getBoundingClientRect().top + window.scrollY;
+      const avail = window.innerHeight - top - 22;
+      const natural = heroInner.getBoundingClientRect().height;
+      if (!natural || avail < 300) return;
+      const s = Math.max(.52, Math.min(1, avail / natural));
+      if (s >= .999) return;
+      heroInner.style.width = (100 / s) + '%';
+      heroInner.style.transform = 'scale(' + s + ')';
+      heroEl.style.height = Math.round(heroInner.getBoundingClientRect().height) + 'px';
+    };
+
+    applyResponsive();
+    window.addEventListener('resize', applyResponsive);
+    this._cleanups.push(() => window.removeEventListener('resize', applyResponsive));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this._fitHero && this._fitHero());
+    const refit = setTimeout(() => this._fitHero && this._fitHero(), 600);
+    this._cleanups.push(() => clearTimeout(refit));
+
+    // ---- hero: pulse draws, then the phone is revealed behind its peak ----
+    const path = root.querySelector('[data-pulse-path]');
+    const phone = root.querySelector('[data-phonewrap]');
+    if (path) {
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+      if (reduce) { path.style.strokeDashoffset = 0; }
+      else {
+        path.style.strokeDashoffset = len;
+        path.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }],
+          { duration: 2200, delay: 250, easing: 'cubic-bezier(.65,0,.2,1)', fill: 'forwards' });
+      }
+    }
+    if (phone) {
+      if (reduce) { phone.style.opacity = 1; }
+      else {
+        phone.style.opacity = 0;
+        phone.animate([
+          { clipPath: 'polygon(42% 100%, 58% 100%, 58% 100%, 42% 100%)', opacity: 1 },
+          { clipPath: 'polygon(28% 100%, 72% 100%, 72% 4%, 28% 4%)', opacity: 1, offset: .45 },
+          { clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1 }
+        ], { duration: 1100, delay: 1250, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'forwards' });
+      }
+    }
+
+    // ---- hero: six glass cards ride a four-slot arc around the phone ----
+    const fanCards = q('[data-fancard]');
+    const fan = root.querySelector('[data-fan]');
+    const dotsWrap = root.querySelector('[data-fandots]');
+    if (fanCards.length && fan) {
+      // slots ordered along the arc (left end → right end) so each tick rotates the wheel one notch
+      const slotsFor = (w) => (w < 560
+        ? [{ x: -168, r: -9, y: -138, s: .45, o: 1, z: 1 }, { x: -72, r: -3, y: -200, s: .5, o: 1, z: 2 },
+           { x: 72, r: 3, y: -200, s: .5, o: 1, z: 2 }, { x: 168, r: 9, y: -138, s: .45, o: 1, z: 1 }]
+        : w < 1020
+        ? [{ x: -252, r: -9, y: -140, s: .54, o: 1, z: 1 }, { x: -108, r: -3, y: -210, s: .6, o: 1, z: 2 },
+           { x: 108, r: 3, y: -210, s: .6, o: 1, z: 2 }, { x: 252, r: 9, y: -140, s: .54, o: 1, z: 1 }]
+        : w < 1280
+          ? [{ x: -356, r: -9, y: -160, s: .7, o: 1, z: 1 }, { x: -150, r: -3, y: -240, s: .78, o: 1, z: 2 },
+             { x: 150, r: 3, y: -240, s: .78, o: 1, z: 2 }, { x: 356, r: 9, y: -160, s: .7, o: 1, z: 1 }]
+          : [{ x: -572, r: -12, y: -78, s: .86, o: 1, z: 1 },
+             { x: -430, r: -8, y: -186, s: .94, o: 1, z: 2 },
+             { x: -218, r: -4, y: -256, s: 1, o: 1, z: 3 },
+             { x: 218, r: 4, y: -256, s: 1, o: 1, z: 3 },
+             { x: 430, r: 8, y: -186, s: .94, o: 1, z: 2 },
+             { x: 572, r: 12, y: -78, s: .86, o: 1, z: 1 }]);
+      let SLOTS = slotsFor(window.innerWidth);
+      let visible = 4, offset = 0, drift = 0, timer = null, entered = false;
+      const dots = fanCards.map((_, i) => {
+        const d = document.createElement('span');
+        d.style.cssText = 'width:7px;height:7px;border-radius:999px;background:rgba(243,240,255,.28);transition:background .3s ease,width .3s ease;cursor:pointer';
+        d.addEventListener('click', () => { offset = i; place(); restart(); });
+        dotsWrap && dotsWrap.appendChild(d);
+        return d;
+      });
+      const place = () => {
+        const n = fanCards.length;
+        fanCards.forEach((c, i) => {
+          let k = (i - offset + n * 2) % n;
+          const slot = (entered && k < SLOTS.length) ? SLOTS[k] : null;
+          if (!slot) {
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(70px) rotate(8deg) scale(.7)';
+            c.style.zIndex = '0';
+            c.style.pointerEvents = 'none';
+          } else {
+            c.style.opacity = '1';
+            c.style.zIndex = String(slot.z);
+            c.style.pointerEvents = 'auto';
+            c.dataset.base = 'translateX(' + slot.x + 'px) translateY(' + slot.y + 'px) rotate(' + slot.r + 'deg) scale(' + slot.s + ')';
+            c.style.transform = c.dataset.base + ' translateX(' + drift + 'px)';
+          }
+        });
+        dots.forEach((d, i) => {
+          const on = i === offset % fanCards.length;
+          d.style.background = on ? '#C8FF3D' : 'rgba(243,240,255,.28)';
+          d.style.width = on ? '18px' : '7px';
+        });
+      };
+      const restart = () => {
+        if (timer) clearInterval(timer);
+        if (reduce) return;
+        timer = setInterval(() => { offset = (offset + 1) % fanCards.length; place(); }, 4200);
+      };
+      this._fanPlace = (w) => { SLOTS = slotsFor(w); place(); };
+      fanCards.forEach(c => { c.style.transition = 'transform .85s cubic-bezier(.3,.8,.25,1), opacity .6s ease, box-shadow .4s ease'; });
+      place();
+      const enter = () => {
+        entered = true;
+        fanCards.forEach((c, i) => { c.style.transitionDelay = (i * 110) + 'ms'; });
+        place();
+        setTimeout(() => fanCards.forEach(c => { c.style.transitionDelay = '0ms'; }), 1500);
+      };
+      if (reduce) { enter(); } else { const t0 = setTimeout(enter, 1400); this._cleanups.push(() => clearTimeout(t0)); }
+      restart();
+      this._cleanups.push(() => timer && clearInterval(timer));
+      fan.addEventListener('pointerenter', () => timer && clearInterval(timer));
+      fan.addEventListener('pointerleave', () => restart());
+
+      if (!reduce) {
+        const hero0 = root.querySelector('[data-hero]');
+        const onFanMove = (e) => {
+          const r = fan.getBoundingClientRect();
+          drift = ((e.clientX - r.left - r.width / 2) / r.width) * 34;
+          fanCards.forEach(c => { if (c.style.opacity === '1') c.style.transform = c.dataset.base + ' translateX(' + drift + 'px)'; });
+        };
+        const onFanLeave = () => { drift = 0; fanCards.forEach(c => { if (c.style.opacity === '1') c.style.transform = c.dataset.base; }); };
+        hero0.addEventListener('pointermove', onFanMove);
+        hero0.addEventListener('pointerleave', onFanLeave);
+        this._cleanups.push(() => { hero0.removeEventListener('pointermove', onFanMove); hero0.removeEventListener('pointerleave', onFanLeave); });
+      }
+    }
+
+    // ---- hero glow follows the cursor, gently ----
+    const glow = root.querySelector('[data-heroglow]');
+    const hero = root.querySelector('[data-hero]');
+    if (glow && hero && !reduce) {
+      glow.style.background = 'radial-gradient(520px circle at 50% 40%, rgba(200,255,61,.10), transparent 60%)';
+      glow.style.transition = 'background .4s ease-out';
+      const onMove = (e) => {
+        const r = hero.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width) * 100, y = ((e.clientY - r.top) / r.height) * 100;
+        glow.style.background = 'radial-gradient(520px circle at ' + x + '% ' + y + '%, rgba(200,255,61,.13), transparent 60%)';
+      };
+      hero.addEventListener('pointermove', onMove);
+      this._cleanups.push(() => hero.removeEventListener('pointermove', onMove));
+    }
+
+    // ---- marquee ----
+    const track = root.querySelector('[data-marquee-track]');
+    const marquee = root.querySelector('[data-marquee]');
+    if (track && marquee && !reduce) {
+      marquee.appendChild(track.cloneNode(true));
+      marquee.appendChild(track.cloneNode(true));
+      const anim = marquee.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-33.333%)' }],
+        { duration: 26000, iterations: Infinity, easing: 'linear' });
+      this._cleanups.push(() => anim.cancel());
+    }
+
+    // ---- reveal on scroll ----
+    const reveals = q('[data-reveal]');
+    if (!reduce && 'IntersectionObserver' in window) {
+      reveals.forEach(e => { e.style.opacity = '0'; e.style.transform = 'translateY(26px)'; e.style.transition = 'opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)'; });
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en, i) => {
+          if (en.isIntersecting) {
+            const el = en.target;
+            const sibs = Array.from(el.parentElement.children).indexOf(el);
+            setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, Math.max(0, sibs) * 90);
+            io.unobserve(el);
+          }
+        });
+      }, { rootMargin: '0px 0px -12% 0px', threshold: .15 });
+      reveals.forEach(e => io.observe(e));
+      this._cleanups.push(() => io.disconnect());
+    }
+
+    // ---- product: sticky screens driven by the text steps ----
+    const screens = q('[data-screen]');
+    const steps = q('[data-step]');
+    const tabs = q('[data-tab]');
+    let active = -1;
+    const setActive = (n) => {
+      if (n === active) return;
+      active = n;
+      screens.forEach((s, i) => {
+        const on = i === n;
+        s.style.transition = reduce ? 'none' : 'opacity .55s ease, transform .6s cubic-bezier(.2,.7,.2,1)';
+        s.style.opacity = on ? '1' : '0';
+        const f = this._scrFit || 1;
+        s.style.transform = on ? 'translateY(0) scale(' + f + ')' : 'translateY(22px) scale(' + (f * .975) + ')';
+        s.style.pointerEvents = on ? 'auto' : 'none';
+        s.style.zIndex = on ? '2' : '1';
+      });
+      steps.forEach((s, i) => {
+        if (s.style.position !== 'absolute') { s.style.opacity = '1'; s.style.transform = 'none'; return; }
+        const on = i === n;
+        s.style.opacity = on ? '1' : '0';
+        s.style.transform = on ? 'translateY(0)' : (i < n ? 'translateY(-22px)' : 'translateY(22px)');
+        s.style.pointerEvents = on ? 'auto' : 'none';
+      });
+      tabs.forEach((t, i) => {
+        const on = i === n;
+        t.style.background = on ? '#4825B3' : '#fff';
+        t.style.color = on ? '#C8FF3D' : '#4825B3';
+        t.style.borderColor = on ? '#4825B3' : '#E4DEFB';
+      });
+      if (n === 2) {
+        q('[data-bar]').forEach((b, i) => {
+          if (reduce) return;
+          b.animate([{ transform: 'scaleY(.2)' }, { transform: 'scaleY(1)' }], { duration: 700, delay: i * 90, easing: 'cubic-bezier(.2,.7,.2,1)' });
+        });
+      }
+    };
+    this._applyScr = () => { const cur = Math.max(0, active); active = -1; setActive(cur); };
+    setActive(0);
+
+    // ---- product: the section pins, the scroll walks 01 → 04 ----
+    const wrap = root.querySelector('[data-prodwrap]');
+    const pin = root.querySelector('[data-prodpin]');
+    let pinned = false;
+    const layoutPin = () => {
+      if (!wrap || !pin) return;
+      if (!pinned) {
+        wrap.style.height = 'auto';
+        pin.style.position = 'static';
+        const stepsBox = root.querySelector('[data-steps]');
+        if (stepsBox) stepsBox.style.height = 'auto';
+        pin.style.minHeight = '0px';
+        steps.forEach(st => { st.style.position = 'relative'; st.style.opacity = '1'; st.style.transform = 'none'; st.style.pointerEvents = 'auto'; st.style.padding = '22px 0'; });
+        active = -1;
+        setActive(0);
+        return;
+      }
+      const stepsBox = root.querySelector('[data-steps]');
+      if (stepsBox) stepsBox.style.height = '300px';
+      steps.forEach(st => { st.style.position = 'absolute'; st.style.padding = '0'; st.style.transition = reduce ? 'none' : 'opacity .5s ease, transform .55s cubic-bezier(.2,.7,.2,1)'; });
+      pin.style.position = 'sticky';
+      pin.style.top = '0px';
+      pin.style.minHeight = window.innerHeight + 'px';
+      pin.style.alignContent = 'center';
+      wrap.style.height = (window.innerHeight * 4) + 'px';
+      active = -1;
+      onProd();
+    };
+    const onProd = () => {
+      if (!wrap || !pinned) return;
+      const r = wrap.getBoundingClientRect();
+      const total = r.height - pin.offsetHeight;
+      const p = Math.min(.9999, Math.max(0, -r.top / Math.max(1, total)));
+      setActive(Math.min(3, Math.floor(p * 4)));
+    };
+    this._setPin = (on) => { pinned = on; layoutPin(); };
+    this._setPin(window.innerWidth >= 1080);
+    window.addEventListener('scroll', onProd, { passive: true });
+    window.addEventListener('resize', layoutPin);
+    this._cleanups.push(() => { window.removeEventListener('scroll', onProd); window.removeEventListener('resize', layoutPin); });
+
+    tabs.forEach((t, i) => t.addEventListener('click', () => {
+      if (!pinned || !wrap) { setActive(i); return; }
+      const total = wrap.getBoundingClientRect().height - pin.offsetHeight;
+      const target = window.scrollY + wrap.getBoundingClientRect().top + (i + .5) / 4 * total;
+      window.scrollTo({ top: target, behavior: reduce ? 'auto' : 'smooth' });
+    }));
+
+    // ---- testimonial carousel ----
+    const testiTrack = root.querySelector('[data-testitrack]');
+    if (testiTrack) {
+      const testiStep = () => Math.min(452, testiTrack.clientWidth * .88);
+      const prevBtn = root.querySelector('[data-testiprev]');
+      const nextBtn = root.querySelector('[data-testinext]');
+      prevBtn && prevBtn.addEventListener('click', () => testiTrack.scrollBy({ left: -testiStep(), behavior: reduce ? 'auto' : 'smooth' }));
+      nextBtn && nextBtn.addEventListener('click', () => testiTrack.scrollBy({ left: testiStep(), behavior: reduce ? 'auto' : 'smooth' }));
+    }
+
+    // ---- measured parallax on the app icons ----
+    const icons = q('[data-icon]');
+    if (icons.length && !reduce) {
+      const onScroll = () => {
+        const r = icons[0].getBoundingClientRect();
+        const p = (window.innerHeight - r.top) / (window.innerHeight + r.height) - .5;
+        icons.forEach((ic, i) => { ic.style.transform = 'translateY(' + (p * (i === 1 ? -46 : i === 0 ? -18 : -32)) + 'px)'; });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      this._cleanups.push(() => window.removeEventListener('scroll', onScroll));
+    }
+
+    // ---- form (not wired to a backend yet) ----
+    const form = root.querySelector('[data-form]');
+    const note = root.querySelector('[data-formnote]');
+    if (form) form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (note) { note.textContent = 'Formulaire non connecté — à brancher (email ou CRM) avant mise en ligne.'; note.style.color = '#C8FF3D'; }
+    });
+  }
+
+  componentDidUpdate() { if (this._fitHero) this._fitHero(); }
+
+  componentWillUnmount() { (this._cleanups || []).forEach(f => f()); }
+
+  renderVals() { return {}; }
+}
+
+</script>
+</body>
+</html>

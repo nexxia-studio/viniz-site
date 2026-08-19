@@ -1,0 +1,25 @@
+# https://viniz.app
+# Site public, aucune zone privee : rien n'est bloque.
+
+User-agent: *
+Allow: /
+
+# Robots d'IA autorises explicitement.
+# Ils passent deja par defaut ; l'explicite vaut signal et documente l'intention.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://viniz.app/sitemap.xml

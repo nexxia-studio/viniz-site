@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preload" as="font" type="font/woff2" href="assets/MuseoModerno.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/HelveticaNowDisplay-Bold.woff2" crossorigin>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -14,8 +16,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-@font-face{font-family:'MuseoModerno';src:url('assets/MuseoModerno.ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:'MuseoModerno';src:url('assets/MuseoModerno.woff2') format('woff2'),url('assets/MuseoModerno.ttf') format('truetype');font-weight:100 900;font-display:swap}
 @font-face{font-family:'HelveticaNowD';src:url('assets/HelveticaNowDisplay-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+picture{display:contents}picture>source{display:none}
 html{scroll-behavior:smooth}
 body{margin:0;background:#FBF9F5;color:#4825B3;font-family:Helvetica,'Helvetica Neue',-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
@@ -98,7 +101,7 @@ input,textarea,button{font:inherit;color:inherit}
         <div data-phonewrap style="position:relative;flex:0 0 auto;width:290px;z-index:3">
           <div data-phone style="position:relative;width:290px;height:590px;background:#0B0620;border-radius:44px;padding:11px;box-shadow:0 40px 90px rgba(0,0,0,.45);border:1px solid rgba(243,240,255,.14)">
             <div style="position:absolute;left:50%;transform:translateX(-50%);top:22px;width:96px;height:26px;background:#0B0620;border-radius:999px;z-index:3"></div>
-            <img src="assets/app-home.png" alt="Écran d'accueil de l'app membre — Dopamine Performance Club" style="position:relative;height:100%;width:100%;object-fit:cover;object-position:top;border-radius:34px;display:block;background:#120A2E">
+            <picture><source srcset="assets/app-home.webp" type="image/webp"><img src="assets/app-home.png" alt="Écran d'accueil de l'app membre — Dopamine Performance Club" width="1179" height="2556" fetchpriority="high" decoding="async" style="position:relative;height:100%;width:100%;object-fit:cover;object-position:top;border-radius:34px;display:block;background:#120A2E"></picture>
           </div>
         </div>
 
@@ -179,21 +182,21 @@ input,textarea,button{font:inherit;color:inherit}
           <div data-screens style="position:relative;height:620px">
 
             <div data-screen="0" style="position:absolute;inset:0;background:#fff;border:1px solid #E4DEFB;border-radius:32px;padding:30px;box-shadow:0 24px 60px rgba(72,37,179,.09);overflow:hidden;display:flex;flex-direction:column">
-              <img src="assets/dash-planning.png" alt="Planning hebdomadaire — dashboard gérant Viniz" style="flex:1;min-height:0;width:100%;object-fit:cover;object-position:top left;border-radius:18px;border:1px solid #F0ECFA;display:block">
+              <picture><source srcset="assets/dash-planning.webp" type="image/webp"><img src="assets/dash-planning.png" alt="Planning hebdomadaire — dashboard gérant Viniz" width="1378" height="882" loading="lazy" decoding="async" style="flex:1;min-height:0;width:100%;object-fit:cover;object-position:top left;border-radius:18px;border:1px solid #F0ECFA;display:block"></picture>
             </div>
 
             <div data-screen="1" style="position:absolute;inset:0;background:#fff;border:1px solid #E4DEFB;border-radius:32px;padding:30px;box-shadow:0 24px 60px rgba(72,37,179,.09);overflow:hidden;display:flex;flex-direction:column">
-              <img src="assets/dash-presences.png" alt="Pointage des présences — dashboard gérant Viniz" style="flex:1;min-height:0;width:100%;object-fit:cover;object-position:top left;border-radius:18px;border:1px solid #F0ECFA;display:block">
+              <picture><source srcset="assets/dash-presences.webp" type="image/webp"><img src="assets/dash-presences.png" alt="Pointage des présences — dashboard gérant Viniz" width="1206" height="895" loading="lazy" decoding="async" style="flex:1;min-height:0;width:100%;object-fit:cover;object-position:top left;border-radius:18px;border:1px solid #F0ECFA;display:block"></picture>
             </div>
 
             <div data-screen="2" style="position:absolute;inset:0;background:#fff;border:1px solid #E4DEFB;border-radius:32px;padding:30px;box-shadow:0 24px 60px rgba(72,37,179,.09);overflow:hidden;display:flex;flex-direction:column">
-              <img src="assets/dash-revenus.png" alt="Revenus — dashboard gérant Viniz" style="flex:1;min-height:0;width:100%;object-fit:cover;object-position:top left;border-radius:18px;border:1px solid #F0ECFA;display:block">
+              <picture><source srcset="assets/dash-revenus.webp" type="image/webp"><img src="assets/dash-revenus.png" alt="Revenus — dashboard gérant Viniz" width="1150" height="907" loading="lazy" decoding="async" style="flex:1;min-height:0;width:100%;object-fit:cover;object-position:top left;border-radius:18px;border:1px solid #F0ECFA;display:block"></picture>
             </div>
 
             <div data-screen="3" style="position:absolute;inset:0;background:#4825B3;border-radius:32px;padding:30px;box-shadow:0 24px 60px rgba(72,37,179,.18);overflow:hidden;display:grid;place-items:center" data-dark="1">
               <div style="display:flex;align-items:center;gap:44px;flex-wrap:wrap;justify-content:center">
                 <div style="width:250px;height:510px;background:#0B0620;border-radius:40px;padding:10px;border:1px solid rgba(243,240,255,.16)">
-                  <img src="assets/app-planning.png" alt="Planning de l'app membre — Dopamine Performance Club" style="height:100%;width:100%;object-fit:cover;object-position:top;border-radius:31px;display:block;background:#120A2E">
+                  <picture><source srcset="assets/app-planning.webp" type="image/webp"><img src="assets/app-planning.png" alt="Planning de l'app membre — Dopamine Performance Club" width="1179" height="2556" loading="lazy" decoding="async" style="height:100%;width:100%;object-fit:cover;object-position:top;border-radius:31px;display:block;background:#120A2E"></picture>
                 </div>
                 <div style="max-width:250px;color:#F3F0FF">
                   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:#C8FF3D;margin:0 0 14px">CÔTÉ MEMBRE</p>
@@ -291,7 +294,7 @@ input,textarea,button{font:inherit;color:inherit}
             <h3 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:28px;line-height:1.05;letter-spacing:-.03em;margin:0 0 14px">Ta propre app, à ton nom</h3>
             <p style="font-size:15px;line-height:1.6;color:#C8C2E6;margin:0 0 26px">Si tu veux aller plus loin, on publie une application dédiée à ta salle — ton nom, ton icône, tes couleurs. Ce n'est pas compris dans les formules : on en parle au cas par cas.</p>
             <div style="display:flex;align-items:center;gap:18px">
-              <img src="assets/icon-dopamine.png" alt="Icône de l'app Dopamine Performance Club" style="width:74px;height:74px;border-radius:20px;display:block;border:1px solid rgba(243,240,255,.18)">
+              <picture><source srcset="assets/icon-dopamine.webp" type="image/webp"><img src="assets/icon-dopamine.png" alt="Icône de l'app Dopamine Performance Club" width="1024" height="1024" loading="lazy" decoding="async" style="width:74px;height:74px;border-radius:20px;display:block;border:1px solid rgba(243,240,255,.18)"></picture>
               <div>
                 <p style="margin:0;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:14px">Dopamine Performance Club</p>
                 <p style="margin:4px 0 0;font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">app dédiée · Ougrée</p>
@@ -299,7 +302,7 @@ input,textarea,button{font:inherit;color:inherit}
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(118%);-webkit-backdrop-filter:blur(24px) saturate(118%);border:1px solid rgba(255,255,255,.30);box-shadow:0 30px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34);border-radius:999px;padding:12px 20px">
-            <img src="assets/viniz-icon.svg" alt="" width="22" height="22" style="width:22px;height:22px;border-radius:6px;display:block">
+            <img src="assets/viniz-icon.svg" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;border-radius:6px;display:block">
             <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">l'app standard est comprise dans chaque formule</span>
           </div>
         </div>
@@ -398,7 +401,7 @@ input,textarea,button{font:inherit;color:inherit}
       </div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" data-cards3>
         <a href="#journal" data-reveal style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 54px rgba(72,37,179,.12), inset 0 1px 0 rgba(255,255,255,.9);border-radius:28px;padding:14px;display:flex;flex-direction:column;gap:18px;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 34px 70px rgba(72,37,179,.18);color:#4825B3">
-          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Fin de cours dans une salle de sport" style="height:190px;width:100%;object-fit:cover;border-radius:18px;display:block;background:#F1EDFD">
+          <picture><source srcset="assets/journal-cours.webp" type="image/webp"><img src="assets/journal-cours.jpg" alt="Fin de cours dans une salle de sport" width="800" height="533" loading="lazy" decoding="async" style="height:190px;width:100%;object-fit:cover;border-radius:18px;display:block;background:#F1EDFD"></picture>
           <span style="padding:0 16px 20px;display:flex;flex-direction:column;gap:14px;min-height:160px">
             <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6B5E9C">GESTION</span>
             <span style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:25px;line-height:1.12;letter-spacing:-.025em">Pourquoi une absence ne devrait jamais être automatique</span>
@@ -406,7 +409,7 @@ input,textarea,button{font:inherit;color:inherit}
           </span>
         </a>
         <a href="#journal" data-reveal style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 54px rgba(72,37,179,.12), inset 0 1px 0 rgba(255,255,255,.9);border-radius:28px;padding:14px;display:flex;flex-direction:column;gap:18px;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 34px 70px rgba(72,37,179,.18);color:#4825B3">
-          <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Paiement par carte au comptoir" style="height:190px;width:100%;object-fit:cover;border-radius:18px;display:block;background:#F1EDFD">
+          <picture><source srcset="assets/journal-paiement.webp" type="image/webp"><img src="assets/journal-paiement.jpg" alt="Paiement par carte au comptoir" width="800" height="533" loading="lazy" decoding="async" style="height:190px;width:100%;object-fit:cover;border-radius:18px;display:block;background:#F1EDFD"></picture>
           <span style="padding:0 16px 20px;display:flex;flex-direction:column;gap:14px;min-height:160px">
             <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6B5E9C">PAIEMENTS</span>
             <span style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:25px;line-height:1.12;letter-spacing:-.025em">Encaisser au comptoir sans perdre sa comptabilité</span>
@@ -414,7 +417,7 @@ input,textarea,button{font:inherit;color:inherit}
           </span>
         </a>
         <a href="#journal" data-reveal style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 54px rgba(72,37,179,.12), inset 0 1px 0 rgba(255,255,255,.9);border-radius:28px;padding:14px;display:flex;flex-direction:column;gap:18px;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 34px 70px rgba(72,37,179,.18);color:#4825B3">
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Membres à l'entraînement en salle" style="height:190px;width:100%;object-fit:cover;border-radius:18px;display:block;background:#F1EDFD">
+          <picture><source srcset="assets/journal-entrainement.webp" type="image/webp"><img src="assets/journal-entrainement.jpg" alt="Membres à l'entraînement en salle" width="800" height="533" loading="lazy" decoding="async" style="height:190px;width:100%;object-fit:cover;border-radius:18px;display:block;background:#F1EDFD"></picture>
           <span style="padding:0 16px 20px;display:flex;flex-direction:column;gap:14px;min-height:160px">
             <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6B5E9C">MEMBRES</span>
             <span style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:25px;line-height:1.12;letter-spacing:-.025em">La liste d'attente qui ne débite personne pour rien</span>
@@ -433,7 +436,7 @@ input,textarea,button{font:inherit;color:inherit}
           <h2 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(32px,4vw,56px);line-height:1;letter-spacing:-.035em;margin:0 0 26px;text-wrap:balance">Écris-nous, on te répond.</h2>
           <p style="font-size:17px;line-height:1.65;color:#C8C2E6;margin:0 0 40px;max-width:440px;text-wrap:pretty">Dis-nous en deux lignes comment tu gères ta salle aujourd'hui. On te répond, et on regarde ensemble si Viniz te convient — en partant de ton planning, pas d'une démonstration générique.</p>
           <div style="display:flex;align-items:center;gap:12px">
-            <img src="assets/viniz-icon.svg" alt="" width="30" height="30" style="width:30px;height:30px;border-radius:8px;display:block">
+            <img src="assets/viniz-icon.svg" alt="" width="30" height="30" loading="lazy" decoding="async" style="width:30px;height:30px;border-radius:8px;display:block">
             <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8F86BF">Édité par Nexxia · Belgique</span>
           </div>
         </div>
@@ -459,7 +462,7 @@ input,textarea,button{font:inherit;color:inherit}
 <footer style="padding:60px 24px 44px">
   <div style="max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:center;border-top:1px solid #E4DEFB;padding-top:34px">
     <div style="display:flex;align-items:center;gap:10px">
-      <img src="assets/viniz-icon.svg" alt="" width="28" height="28" style="width:28px;height:28px;border-radius:8px;display:block">
+      <img src="assets/viniz-icon.svg" alt="" width="28" height="28" loading="lazy" decoding="async" style="width:28px;height:28px;border-radius:8px;display:block">
       <span style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:19px">Viniz</span>
       <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B5E9C;margin-left:10px">Garde le pouls de ta salle.</span>
     </div>

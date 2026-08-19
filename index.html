@@ -64,14 +64,14 @@ input,textarea,button{font:inherit;color:inherit}
       <div data-heroinner style="position:relative;transform-origin:0 0;width:100%">
       <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:76px 64px 0" data-herogrid>
         <div style="max-width:900px;padding-bottom:34px">
-          <p style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:#C8FF3D;margin:0 0 24px">Garde le pouls de ta salle</p>
+          <p data-heroeyebrow style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:#C8FF3D;margin:0 0 24px">Garde le pouls de ta salle</p>
           <h1 data-herotitle style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(50px,6.6vw,104px);line-height:.94;letter-spacing:-.035em;margin:0 0 26px;text-wrap:balance">Gère ta salle,<br>pas ton logiciel.</h1>
           <p style="font-size:18px;line-height:1.6;color:#C8C2E6;margin:0 auto 34px;max-width:600px;text-wrap:pretty">Réservations, paiements, présences : Viniz s'occupe de l'administratif pendant que tu t'occupes de tes membres. Et tes membres réservent, paient et prennent leur place en liste d'attente depuis une app claire — avec tes cours et tes règles.</p>
           <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center">
-            <a href="#contact" style="background:#C8FF3D;color:#2A1470;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;padding:15px 28px;border-radius:999px;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 30px rgba(200,255,61,.28);color:#2A1470">Nous contacter</a>
-            <a href="#produit" style="border:1px solid rgba(243,240,255,.32);color:#F3F0FF;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;padding:15px 28px;border-radius:999px;transition:border-color .25s ease,transform .25s ease" style-hover="border-color:#C8FF3D;color:#F3F0FF;transform:translateY(-2px)">Voir le produit</a>
+            <a href="#contact" data-herocta style="background:#C8FF3D;color:#2A1470;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;padding:15px 28px;border-radius:999px;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 30px rgba(200,255,61,.28);color:#2A1470">Nous contacter</a>
+            <a href="#produit" data-herocta style="border:1px solid rgba(243,240,255,.32);color:#F3F0FF;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;padding:15px 28px;border-radius:999px;transition:border-color .25s ease,transform .25s ease" style-hover="border-color:#C8FF3D;color:#F3F0FF;transform:translateY(-2px)">Voir le produit</a>
           </div>
-          <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#8F86BF;margin:30px 0 0">Conçu avec une vraie salle, pas dans un bureau.</p>
+          <p data-heronote style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#8F86BF;margin:30px 0 0">Conçu avec une vraie salle, pas dans un bureau.</p>
         </div>
 
         <div data-fan style="position:relative;display:flex;align-items:flex-end;justify-content:center;width:100%;min-height:600px;perspective:1600px">
@@ -493,6 +493,11 @@ class Component extends DCLogic {
       const set = (sel, prop, val) => q(sel).forEach(e => { e.style[prop] = val; });
       const narrow = w < 1080, mobile = w < 720;
       set('[data-herogrid]', 'padding', mobile ? '52px 24px 40px' : narrow ? '64px 40px 60px' : '76px 64px 70px');
+      // typographie du hero — desktop uniquement ; en mobile on remet les valeurs d'origine
+      set('[data-heroeyebrow]', 'fontSize', mobile ? '17px' : '18px');
+      set('[data-herotitle]', 'fontSize', mobile ? 'clamp(50px,6.6vw,104px)' : 'clamp(54px,7.5vw,116px)');
+      set('[data-herocta]', 'fontSize', mobile ? '15px' : '20px');
+      set('[data-heronote]', 'fontSize', mobile ? '12px' : '15px');
       if (this._fanPlace) this._fanPlace(w);
       q('[data-fandots]').forEach(e => { e.style.display = 'flex'; e.style.bottom = w < 1020 ? '-24px' : '-14px'; });
       const short = window.innerHeight < 900;

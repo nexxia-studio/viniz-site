@@ -72,6 +72,80 @@
       "isPartOf": {
         "@id": "https://viniz.app/#website"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://viniz.app/#faq",
+      "inLanguage": "fr",
+      "isPartOf": {
+        "@id": "https://viniz.app/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Mes membres doivent-ils télécharger une application ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Ils réservent, paient et prennent leur place en liste d'attente depuis l'application. Elle peut porter ton nom, en option payante."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment mes membres paient-ils ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tout se règle depuis l'application : abonnement ou séances à la carte. Tu peux aussi encaisser toi-même au comptoir et enregistrer le paiement depuis ton tableau de bord."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'argent arrive-t-il sur mon compte ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, directement. Viniz n'encaisse jamais à ta place : tu connectes ton propre compte de paiement, et les règlements de tes membres y arrivent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il si un membre ne vient pas ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tu fixes le délai d'annulation et ce qu'il en coûte. L'application applique ta règle. Tu pointes les présences et les absences depuis ton téléphone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour démarrer ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tu poses tes cours et ton planning depuis le tableau de bord, sans nous attendre. Tout se configure seul."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Viniz fonctionne-t-il si je n'ai pas de salle ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Salles de sport, studios, cours de yoga ou de Pilates, coachs indépendants : tes cours et ton planning se configurent de la même façon."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je récupérer mes données si j'arrête ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Y a-t-il un engagement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aucun engagement. Tu choisis une facturation mensuelle ou annuelle, et tu peux arrêter à tout moment. Tu gardes l'accès jusqu'à la fin de la période déjà payée."
+          }
+        }
+      ]
     }
   ]
 }
@@ -117,6 +191,7 @@ input,textarea,button{font:inherit;color:inherit}
       <a href="#marque" style="padding:6px 2px">Ta marque</a>
       <a href="#tarifs" style="padding:6px 2px">Tarifs</a>
       <a href="#journal" style="padding:6px 2px">Journal</a>
+      <a href="#faq" style="padding:6px 2px">FAQ</a>
     </div>
     <a href="#contact" style="flex:0 0 auto;background:#4825B3;color:#C8FF3D;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:14px;padding:11px 20px;border-radius:999px;white-space:nowrap;transition:transform .25s ease,background .25s ease" style-hover="background:#2A1470;color:#C8FF3D;transform:translateY(-1px)">Nous contacter</a>
   </nav>
@@ -496,6 +571,106 @@ input,textarea,button{font:inherit;color:inherit}
             <span style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B5E9C">Lire →</span>
           </span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="position:relative;padding:0 24px 120px">
+    <div aria-hidden="true" style="position:absolute;right:6%;top:10%;width:480px;height:480px;border-radius:50%;background:#C8FF3D;filter:blur(150px);opacity:.14;pointer-events:none"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:44px">
+        <h2 style="font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:clamp(30px,3.6vw,48px);line-height:1;letter-spacing:-.035em;margin:0">Questions fréquentes</h2>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6B5E9C;margin:0">Ce qu'on nous demande le plus souvent</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:880px">
+        <div data-faqitem style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 18px 42px rgba(72,37,179,.09), inset 0 1px 0 rgba(255,255,255,.9);border-radius:22px;overflow:hidden">
+          <h3 style="margin:0">
+            <button type="button" data-faqq id="faq-q1" aria-expanded="false" aria-controls="faq-r1" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;background:transparent;border:none;text-align:left;cursor:pointer;padding:22px 26px;font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:18px;line-height:1.32;letter-spacing:-.015em;color:#4825B3">
+              <span>Mes membres doivent-ils télécharger une application ?</span>
+              <span data-faqicon aria-hidden="true" style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#4825B3;color:#C8FF3D;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1;transition:transform .3s ease">+</span>
+            </button>
+          </h3>
+          <div id="faq-r1" data-faqr role="region" aria-labelledby="faq-q1" aria-hidden="true" style="max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)">
+            <p style="margin:0;padding:0 26px 24px;font-size:15px;line-height:1.7;color:#6B5E9C;text-wrap:pretty">Oui. Ils réservent, paient et prennent leur place en liste d&#x27;attente depuis l&#x27;application. Elle peut porter ton nom, en option payante.</p>
+          </div>
+        </div>
+        <div data-faqitem style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 18px 42px rgba(72,37,179,.09), inset 0 1px 0 rgba(255,255,255,.9);border-radius:22px;overflow:hidden">
+          <h3 style="margin:0">
+            <button type="button" data-faqq id="faq-q2" aria-expanded="false" aria-controls="faq-r2" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;background:transparent;border:none;text-align:left;cursor:pointer;padding:22px 26px;font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:18px;line-height:1.32;letter-spacing:-.015em;color:#4825B3">
+              <span>Comment mes membres paient-ils ?</span>
+              <span data-faqicon aria-hidden="true" style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#4825B3;color:#C8FF3D;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1;transition:transform .3s ease">+</span>
+            </button>
+          </h3>
+          <div id="faq-r2" data-faqr role="region" aria-labelledby="faq-q2" aria-hidden="true" style="max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)">
+            <p style="margin:0;padding:0 26px 24px;font-size:15px;line-height:1.7;color:#6B5E9C;text-wrap:pretty">Tout se règle depuis l&#x27;application : abonnement ou séances à la carte. Tu peux aussi encaisser toi-même au comptoir et enregistrer le paiement depuis ton tableau de bord.</p>
+          </div>
+        </div>
+        <div data-faqitem style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 18px 42px rgba(72,37,179,.09), inset 0 1px 0 rgba(255,255,255,.9);border-radius:22px;overflow:hidden">
+          <h3 style="margin:0">
+            <button type="button" data-faqq id="faq-q3" aria-expanded="false" aria-controls="faq-r3" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;background:transparent;border:none;text-align:left;cursor:pointer;padding:22px 26px;font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:18px;line-height:1.32;letter-spacing:-.015em;color:#4825B3">
+              <span>L&#x27;argent arrive-t-il sur mon compte ?</span>
+              <span data-faqicon aria-hidden="true" style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#4825B3;color:#C8FF3D;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1;transition:transform .3s ease">+</span>
+            </button>
+          </h3>
+          <div id="faq-r3" data-faqr role="region" aria-labelledby="faq-q3" aria-hidden="true" style="max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)">
+            <p style="margin:0;padding:0 26px 24px;font-size:15px;line-height:1.7;color:#6B5E9C;text-wrap:pretty">Oui, directement. Viniz n&#x27;encaisse jamais à ta place : tu connectes ton propre compte de paiement, et les règlements de tes membres y arrivent.</p>
+          </div>
+        </div>
+        <div data-faqitem style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 18px 42px rgba(72,37,179,.09), inset 0 1px 0 rgba(255,255,255,.9);border-radius:22px;overflow:hidden">
+          <h3 style="margin:0">
+            <button type="button" data-faqq id="faq-q4" aria-expanded="false" aria-controls="faq-r4" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;background:transparent;border:none;text-align:left;cursor:pointer;padding:22px 26px;font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:18px;line-height:1.32;letter-spacing:-.015em;color:#4825B3">
+              <span>Que se passe-t-il si un membre ne vient pas ?</span>
+              <span data-faqicon aria-hidden="true" style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#4825B3;color:#C8FF3D;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1;transition:transform .3s ease">+</span>
+            </button>
+          </h3>
+          <div id="faq-r4" data-faqr role="region" aria-labelledby="faq-q4" aria-hidden="true" style="max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)">
+            <p style="margin:0;padding:0 26px 24px;font-size:15px;line-height:1.7;color:#6B5E9C;text-wrap:pretty">Tu fixes le délai d&#x27;annulation et ce qu&#x27;il en coûte. L&#x27;application applique ta règle. Tu pointes les présences et les absences depuis ton téléphone.</p>
+          </div>
+        </div>
+        <div data-faqitem style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 18px 42px rgba(72,37,179,.09), inset 0 1px 0 rgba(255,255,255,.9);border-radius:22px;overflow:hidden">
+          <h3 style="margin:0">
+            <button type="button" data-faqq id="faq-q5" aria-expanded="false" aria-controls="faq-r5" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;background:transparent;border:none;text-align:left;cursor:pointer;padding:22px 26px;font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:18px;line-height:1.32;letter-spacing:-.015em;color:#4825B3">
+              <span>Combien de temps pour démarrer ?</span>
+              <span data-faqicon aria-hidden="true" style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#4825B3;color:#C8FF3D;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1;transition:transform .3s ease">+</span>
+            </button>
+          </h3>
+          <div id="faq-r5" data-faqr role="region" aria-labelledby="faq-q5" aria-hidden="true" style="max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)">
+            <p style="margin:0;padding:0 26px 24px;font-size:15px;line-height:1.7;color:#6B5E9C;text-wrap:pretty">Tu poses tes cours et ton planning depuis le tableau de bord, sans nous attendre. Tout se configure seul.</p>
+          </div>
+        </div>
+        <div data-faqitem style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 18px 42px rgba(72,37,179,.09), inset 0 1px 0 rgba(255,255,255,.9);border-radius:22px;overflow:hidden">
+          <h3 style="margin:0">
+            <button type="button" data-faqq id="faq-q6" aria-expanded="false" aria-controls="faq-r6" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;background:transparent;border:none;text-align:left;cursor:pointer;padding:22px 26px;font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:18px;line-height:1.32;letter-spacing:-.015em;color:#4825B3">
+              <span>Viniz fonctionne-t-il si je n&#x27;ai pas de salle ?</span>
+              <span data-faqicon aria-hidden="true" style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#4825B3;color:#C8FF3D;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1;transition:transform .3s ease">+</span>
+            </button>
+          </h3>
+          <div id="faq-r6" data-faqr role="region" aria-labelledby="faq-q6" aria-hidden="true" style="max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)">
+            <p style="margin:0;padding:0 26px 24px;font-size:15px;line-height:1.7;color:#6B5E9C;text-wrap:pretty">Oui. Salles de sport, studios, cours de yoga ou de Pilates, coachs indépendants : tes cours et ton planning se configurent de la même façon.</p>
+          </div>
+        </div>
+        <div data-faqitem style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 18px 42px rgba(72,37,179,.09), inset 0 1px 0 rgba(255,255,255,.9);border-radius:22px;overflow:hidden">
+          <h3 style="margin:0">
+            <button type="button" data-faqq id="faq-q7" aria-expanded="false" aria-controls="faq-r7" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;background:transparent;border:none;text-align:left;cursor:pointer;padding:22px 26px;font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:18px;line-height:1.32;letter-spacing:-.015em;color:#4825B3">
+              <span>Puis-je récupérer mes données si j&#x27;arrête ?</span>
+              <span data-faqicon aria-hidden="true" style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#4825B3;color:#C8FF3D;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1;transition:transform .3s ease">+</span>
+            </button>
+          </h3>
+          <div id="faq-r7" data-faqr role="region" aria-labelledby="faq-q7" aria-hidden="true" style="max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)">
+            <p style="margin:0;padding:0 26px 24px;font-size:15px;line-height:1.7;color:#6B5E9C;text-wrap:pretty">Oui.</p>
+          </div>
+        </div>
+        <div data-faqitem style="background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(120%);-webkit-backdrop-filter:blur(22px) saturate(120%);border:1px solid rgba(255,255,255,.8);box-shadow:0 18px 42px rgba(72,37,179,.09), inset 0 1px 0 rgba(255,255,255,.9);border-radius:22px;overflow:hidden">
+          <h3 style="margin:0">
+            <button type="button" data-faqq id="faq-q8" aria-expanded="false" aria-controls="faq-r8" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;background:transparent;border:none;text-align:left;cursor:pointer;padding:22px 26px;font-family:'MuseoModerno',sans-serif;font-weight:700;font-size:18px;line-height:1.32;letter-spacing:-.015em;color:#4825B3">
+              <span>Y a-t-il un engagement ?</span>
+              <span data-faqicon aria-hidden="true" style="flex:0 0 auto;width:26px;height:26px;border-radius:999px;background:#4825B3;color:#C8FF3D;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1;transition:transform .3s ease">+</span>
+            </button>
+          </h3>
+          <div id="faq-r8" data-faqr role="region" aria-labelledby="faq-q8" aria-hidden="true" style="max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1)">
+            <p style="margin:0;padding:0 26px 24px;font-size:15px;line-height:1.7;color:#6B5E9C;text-wrap:pretty">Aucun engagement. Tu choisis une facturation mensuelle ou annuelle, et tu peux arrêter à tout moment. Tu gardes l&#x27;accès jusqu&#x27;à la fin de la période déjà payée.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -893,6 +1068,55 @@ class Component extends DCLogic {
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
       this._cleanups.push(() => window.removeEventListener('scroll', onScroll));
+    }
+
+    // ---- FAQ : accordeon, une seule question ouverte a la fois ----
+    // Les reponses restent dans le DOM en permanence, repliees en CSS : un
+    // contenu injecte au clic ne serait pas lu par les robots.
+    const faqBoutons = q('[data-faqq]');
+    if (faqBoutons.length) {
+      const panneau = (b) => document.getElementById(b.getAttribute('aria-controls'));
+      const replier = (b, anime) => {
+        const p = panneau(b);
+        if (!p) return;
+        b.setAttribute('aria-expanded', 'false');
+        p.setAttribute('aria-hidden', 'true');
+        const ico = b.querySelector('[data-faqicon]');
+        if (ico) ico.style.transform = 'rotate(0deg)';
+        if (!anime || reduce) { p.style.maxHeight = '0px'; return; }
+        p.style.maxHeight = p.scrollHeight + 'px';
+        requestAnimationFrame(() => { p.style.maxHeight = '0px'; });
+      };
+      const deplier = (b, anime) => {
+        const p = panneau(b);
+        if (!p) return;
+        b.setAttribute('aria-expanded', 'true');
+        p.setAttribute('aria-hidden', 'false');
+        const ico = b.querySelector('[data-faqicon]');
+        if (ico) ico.style.transform = 'rotate(45deg)';
+        if (!anime || reduce) { p.style.maxHeight = 'none'; return; }
+        p.style.maxHeight = p.scrollHeight + 'px';
+        const fin = () => { p.style.maxHeight = 'none'; p.removeEventListener('transitionend', fin); };
+        p.addEventListener('transitionend', fin);
+      };
+      faqBoutons.forEach((b) => {
+        b.addEventListener('click', () => {
+          const ouvert = b.getAttribute('aria-expanded') === 'true';
+          faqBoutons.forEach((autre) => { if (autre !== b) replier(autre, true); });
+          if (ouvert) replier(b, true); else deplier(b, true);
+        });
+        // Navigation au clavier entre questions, en plus d'Entree et Espace
+        // que le <button> gere nativement.
+        b.addEventListener('keydown', (e) => {
+          const i = faqBoutons.indexOf(b);
+          let cible = -1;
+          if (e.key === 'ArrowDown') cible = (i + 1) % faqBoutons.length;
+          else if (e.key === 'ArrowUp') cible = (i - 1 + faqBoutons.length) % faqBoutons.length;
+          else if (e.key === 'Home') cible = 0;
+          else if (e.key === 'End') cible = faqBoutons.length - 1;
+          if (cible >= 0) { e.preventDefault(); faqBoutons[cible].focus(); }
+        });
+      });
     }
 
     // ---- formulaire de contact : envoi en fetch vers /api/contact ----

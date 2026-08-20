@@ -25,6 +25,58 @@
 <meta name="twitter:image" content="https://viniz.app/assets/og-image.png">
 <meta name="twitter:image:alt" content="Viniz, le logiciel de gestion pour salles de sport : le dashboard gérant et l'app membre.">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://viniz.app/#organization",
+      "name": "Nexxia",
+      "url": "https://viniz.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://viniz.app/#logo",
+        "url": "https://viniz.app/assets/viniz-logo.png",
+        "width": 512,
+        "height": 512,
+        "caption": "Viniz"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BE"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://viniz.app/#website",
+      "name": "Viniz",
+      "url": "https://viniz.app/",
+      "inLanguage": "fr",
+      "publisher": {
+        "@id": "https://viniz.app/#organization"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://viniz.app/#software",
+      "name": "Viniz",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "description": "Viniz, le logiciel de réservation pour salles de sport, studios et coachs indépendants. Tes cours, tes règles : chacun réserve, paie et prend sa place seul.",
+      "url": "https://viniz.app/",
+      "inLanguage": "fr",
+      "publisher": {
+        "@id": "https://viniz.app/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://viniz.app/#website"
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preload" as="font" type="font/woff2" href="assets/MuseoModerno.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/HelveticaNowDisplay-Bold.woff2" crossorigin>
 <script src="./support.js"></script>

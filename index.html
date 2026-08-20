@@ -521,7 +521,10 @@ input,textarea,button{font:inherit;color:inherit}
             <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">EMAIL</span><input name="email" type="email" required autocomplete="email" style="background:rgba(243,240,255,.07);border:1px solid rgba(243,240,255,.18);border-radius:14px;padding:15px 16px;font-size:15px;color:#F3F0FF"></label>
             <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">TÉLÉPHONE</span><input name="tel" type="tel" autocomplete="tel" style="background:rgba(243,240,255,.07);border:1px solid rgba(243,240,255,.18);border-radius:14px;padding:15px 16px;font-size:15px;color:#F3F0FF"></label>
           </div>
-          <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">MESSAGE</span><textarea name="message" rows="4" style="background:rgba(243,240,255,.07);border:1px solid rgba(243,240,255,.18);border-radius:14px;padding:15px 16px;font-size:15px;color:#F3F0FF;resize:vertical"></textarea></label>
+          <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+            <label>Site web<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C8C2E6">MESSAGE</span><textarea name="message" rows="4" required style="background:rgba(243,240,255,.07);border:1px solid rgba(243,240,255,.18);border-radius:14px;padding:15px 16px;font-size:15px;color:#F3F0FF;resize:vertical"></textarea></label>
           <button type="submit" style="margin-top:8px;background:#C8FF3D;color:#2A1470;border:none;font-family:'HelveticaNowD',Helvetica,sans-serif;font-size:15px;padding:17px;border-radius:999px;cursor:pointer;transition:transform .25s ease" style-hover="transform:translateY(-2px)">Envoyer le message</button>
           <p data-formnote style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8F86BF;margin:4px 0 0;line-height:1.6">On répond sous 24 h ouvrées. Pas de liste de diffusion. Bientôt : tester l'app en version gratuite, sans nous écrire.</p>
         </form>
@@ -892,13 +895,86 @@ class Component extends DCLogic {
       this._cleanups.push(() => window.removeEventListener('scroll', onScroll));
     }
 
-    // ---- form (not wired to a backend yet) ----
+    // ---- formulaire de contact : envoi en fetch vers /api/contact ----
     const form = root.querySelector('[data-form]');
     const note = root.querySelector('[data-formnote]');
-    if (form) form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (note) { note.textContent = 'Formulaire non connecté. À brancher (email ou CRM) avant mise en ligne.'; note.style.color = '#C8FF3D'; }
-    });
+    if (form && note) {
+      const bouton = form.querySelector('button[type=submit]');
+      const noteTexte = note.textContent;
+      const noteCouleur = note.style.color;
+      const libelle = bouton ? bouton.textContent : '';
+      let jeton = null;
+
+      // Jeton horodaté signé par le serveur : il sert à mesurer le temps de
+      // saisie sans faire confiance à l'horloge du visiteur.
+      const prendreJeton = () => fetch('/api/contact', { method: 'GET' })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((j) => { if (j && j.ts && j.sig) jeton = j; })
+        .catch(() => {});
+      prendreJeton();
+      setTimeout(() => { if (!jeton) prendreJeton(); }, 2500);
+
+      const afficher = (texte, couleur) => { note.textContent = texte; note.style.color = couleur; };
+      const occupe = (etat) => {
+        if (!bouton) return;
+        bouton.disabled = etat;
+        bouton.style.opacity = etat ? '.6' : '';
+        bouton.style.cursor = etat ? 'progress' : 'pointer';
+        bouton.textContent = etat ? 'Envoi en cours…' : libelle;
+      };
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (bouton && bouton.disabled) return;
+
+        const lire = (n) => {
+          const el = form.querySelector('[name=' + n + ']');
+          return el ? el.value.trim() : '';
+        };
+        const donnees = {
+          nom: lire('nom'), activite: lire('activite'), email: lire('email'),
+          tel: lire('tel'), message: lire('message'), website: lire('website'),
+        };
+
+        const requis = [['nom', 'ton nom'], ['activite', 'ton activité'],
+                        ['email', 'ton email'], ['message', 'ton message']];
+        const vide = requis.find((c) => !donnees[c[0]]);
+        if (vide) {
+          afficher('Il manque ' + vide[1] + '.', '#C8FF3D');
+          const champ = form.querySelector('[name=' + vide[0] + ']');
+          if (champ) champ.focus();
+          return;
+        }
+
+        if (jeton) { donnees.ts = jeton.ts; donnees.sig = jeton.sig; }
+        occupe(true);
+        afficher('Envoi en cours…', '#C8C2E6');
+
+        try {
+          const reponse = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(donnees),
+          });
+          const resultat = await reponse.json().catch(() => ({}));
+          if (!reponse.ok || !resultat.ok) throw new Error(resultat.erreur || 'envoi impossible');
+          form.reset();
+          jeton = null;
+          prendreJeton();
+          afficher('Message envoyé. On te répond sous 24 h ouvrées.', '#C8FF3D');
+        } catch (err) {
+          // Jamais de faux succès : si l'envoi a échoué, on le dit, et on
+          // donne une adresse de repli pour ne pas perdre le contact.
+          afficher("L'envoi a échoué. Écris-nous directement à support@viniz.app.", '#FFB4A2');
+        } finally {
+          occupe(false);
+        }
+      });
+
+      form.addEventListener('input', () => {
+        if (note.textContent !== noteTexte) afficher(noteTexte, noteCouleur);
+      }, { once: true });
+    }
   }
 
   componentDidUpdate() { if (this._fitHero) this._fitHero(); }

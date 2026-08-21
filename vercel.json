@@ -5,17 +5,17 @@
     {
       "source": "/legal/privacy",
       "destination": "https://app.viniz.app/legal/privacy",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/legal/terms",
       "destination": "https://app.viniz.app/legal/terms",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/support",
       "destination": "https://app.viniz.app/support",
-      "permanent": false
+      "permanent": true
     }
   ],
 
